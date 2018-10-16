@@ -9,15 +9,31 @@
 import UIKit
 
 class GameLibrary: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var gameArray = [Game(title: "Fortnite", genre: "Battle Royale", description: "", rating: "E 10+")]
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 10
+        return gameArray.count
 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell") as! GameTableViewCell
-        cell.titleLabel.text = "hi"
+        
+        let currentGame = gameArray[indexPath.row]
+        
+        cell.titleLabel.text = currentGame.title
+        cell.genreLabel.text = currentGame.genre
+        cell.ratingLabel.text = currentGame.rating
+        
+        if currentGame.checkedIn {
+            cell.statusView.backgroundColor = UIColor.green
+        } else {
+            cell.statusView.backgroundColor = UIColor.red
+        }
         
         return cell
     }

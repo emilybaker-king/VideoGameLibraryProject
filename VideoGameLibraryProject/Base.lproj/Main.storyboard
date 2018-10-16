@@ -141,9 +141,9 @@
                                             <outlet property="dateLabel" destination="Gjz-r5-z1G" id="d7A-Jg-aEa"/>
                                             <outlet property="genreLabel" destination="d2v-pZ-6qI" id="7dI-rY-bZz"/>
                                             <outlet property="ratingLabel" destination="Sbv-pW-XBX" id="RyT-Tb-5nX"/>
-                                            <outlet property="statusView" destination="pHe-Up-pZU" id="2rs-Z5-rjt"/>
+                                            <outlet property="statusView" destination="nVx-5g-4OS" id="jHj-Dx-FBd"/>
                                             <outlet property="titleLabel" destination="IAE-wd-7Mz" id="dgw-aK-4yV"/>
-                                            <segue destination="GLI-QT-99T" kind="show" id="WDY-xb-YLS"/>
+                                            <segue destination="GLI-QT-99T" kind="show" id="lmI-Bw-D1D"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -14,7 +14,8 @@ class GameTableViewCell: UITableViewCell {
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var statusView: NSLayoutConstraint!
+    @IBOutlet weak var statusView: UIView!
+    
     
     
     override func awakeFromNib() {
