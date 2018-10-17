@@ -10,6 +10,8 @@ import UIKit
 
 class GameLibrary: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var gameListTableView: UITableView!
+    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,6 +51,13 @@ class GameLibrary: UIViewController, UITableViewDelegate, UITableViewDataSource 
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    //go to another screen and then come back and this function will get called.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        gameListTableView.reloadData()
     }
     
     

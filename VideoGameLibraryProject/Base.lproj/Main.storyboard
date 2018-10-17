@@ -17,13 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMN-3Y-a8o">
-                                <rect key="frame" x="163" y="537" width="49" height="30"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <segue destination="RFN-yx-rzT" kind="show" id="Zdb-nz-du5"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to the Video Game Library" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFn-sC-H6r">
                                 <rect key="frame" x="20" y="94" width="335" height="143.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
@@ -36,13 +29,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="age" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VBs-sB-RYd">
-                                <rect key="frame" x="139" y="364" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="age" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VBs-sB-RYd">
+                                <rect key="frame" x="139" y="362.5" width="97" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMN-3Y-a8o">
+                                <rect key="frame" x="147" y="525" width="81" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <segue destination="RFN-yx-rzT" kind="show" id="Zdb-nz-du5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -53,8 +53,11 @@
                             <constraint firstItem="TFn-sC-H6r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="8jY-RA-DdV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KMN-3Y-a8o" secondAttribute="bottom" constant="100" id="CHQ-R2-glQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TFn-sC-H6r" secondAttribute="trailing" constant="20" id="DM0-jC-sAZ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KMN-3Y-a8o" secondAttribute="trailing" constant="163" id="NG1-6e-wpD"/>
-                            <constraint firstItem="KMN-3Y-a8o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="163" id="ZSx-IB-rOR"/>
+                            <constraint firstItem="VBs-sB-RYd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="139" id="EBP-oc-bhm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KMN-3Y-a8o" secondAttribute="trailing" constant="147" id="Imm-j6-xwU"/>
+                            <constraint firstItem="VBs-sB-RYd" firstAttribute="top" secondItem="hfP-3U-tBT" secondAttribute="bottom" constant="41" id="LM5-Dy-IFT"/>
+                            <constraint firstItem="KMN-3Y-a8o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="147" id="OY2-gv-Hld"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VBs-sB-RYd" secondAttribute="trailing" constant="139" id="yTK-6s-53d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -169,6 +172,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="gameListTableView" destination="IQe-EH-0HY" id="k0T-hq-61l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZI-ZF-PgO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -226,7 +232,7 @@
             </objects>
             <point key="canvasLocation" x="2878" y="572"/>
         </scene>
-        <!--Add Game-->
+        <!--Add New Game-->
         <scene sceneID="QlY-vh-RsT">
             <objects>
                 <viewController id="bzO-po-5AR" customClass="addGame" customModule="VideoGameLibraryProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -243,8 +249,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3zF-wM-hl3">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3zF-wM-hl3">
                                         <rect key="frame" x="0.0" y="40.5" width="335" height="30"/>
+                                        <color key="backgroundColor" red="0.89626513210000003" green="0.89626513210000003" blue="0.89626513210000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -255,10 +262,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ERG-zv-5nX">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ERG-zv-5nX">
                                         <rect key="frame" x="0.0" y="131" width="335" height="27"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="backgroundColor" red="0.90472530052451894" green="0.90472530052451894" blue="0.90472530052451894" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -272,11 +278,12 @@
                                         <rect key="frame" x="0.0" y="218.5" width="335" height="29"/>
                                         <segments>
                                             <segment title="E"/>
-                                            <segment title="E 10+"/>
+                                            <segment title="E10+"/>
                                             <segment title="T"/>
                                             <segment title="M"/>
                                             <segment title="AO"/>
                                         </segments>
+                                        <color key="tintColor" red="0.74597231221865279" green="0.1151320318719294" blue="0.099215032738348571" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YL7-bx-V8Q">
                                         <rect key="frame" x="0.0" y="266.5" width="335" height="20.5"/>
@@ -303,7 +310,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mDi-up-hY9"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Game" id="v77-Fz-Khq">
+                    <navigationItem key="navigationItem" title="Add New Game" id="v77-Fz-Khq">
                         <barButtonItem key="rightBarButtonItem" title="Submit" id="Pqt-5M-yvS">
                             <connections>
                                 <action selector="submitButtonTapped:" destination="bzO-po-5AR" id="KDE-6O-KMN"/>
