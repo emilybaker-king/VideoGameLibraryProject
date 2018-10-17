@@ -10,20 +10,19 @@ import UIKit
 
 class GameLibrary: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var gameArray = [Game(title: "Fortnite", genre: "Battle Royale", description: "", rating: "E 10+")]
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return gameArray.count
-
+        return GameManager.sharedInstance.getGameCount()
+ 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell") as! GameTableViewCell
         
-        let currentGame = gameArray[indexPath.row]
+        let currentGame = GameManager.sharedInstance.getGame(at: indexPath.row)
         
         cell.titleLabel.text = currentGame.title
         cell.genreLabel.text = currentGame.genre
@@ -51,6 +50,13 @@ class GameLibrary: UIViewController, UITableViewDelegate, UITableViewDataSource 
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    @IBAction func unwindToGameList(segue: UIStoryboardSegue) {
+        
+    }
+    
+    
     
 
     /*

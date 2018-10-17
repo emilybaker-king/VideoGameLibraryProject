@@ -17,6 +17,7 @@
 		B7A60721217508B000AA5039 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A6071F217508B000AA5039 /* Main.storyboard */; };
 		B7A60723217508B100AA5039 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7A60722217508B100AA5039 /* Assets.xcassets */; };
 		B7A60726217508B100AA5039 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A60724217508B100AA5039 /* LaunchScreen.storyboard */; };
+		B7F396772177AD4600B1F31F /* gameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F396762177AD4600B1F31F /* gameManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		B7A60722217508B100AA5039 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7A60725217508B100AA5039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7A60727217508B100AA5039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7F396762177AD4600B1F31F /* gameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				B726080A21763848002E58E2 /* gameInfo.swift */,
 				B726080C217653E7002E58E2 /* GameTableViewCell.swift */,
 				B726080E21766483002E58E2 /* game.swift */,
+				B7F396762177AD4600B1F31F /* gameManager.swift */,
 			);
 			path = VideoGameLibraryProject;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7A6071E217508B000AA5039 /* ViewController.swift in Sources */,
+				B7F396772177AD4600B1F31F /* gameManager.swift in Sources */,
 				B726080B21763848002E58E2 /* gameInfo.swift in Sources */,
 				B7A6071C217508B000AA5039 /* AppDelegate.swift in Sources */,
 				B72608072176375E002E58E2 /* GameLibrary.swift in Sources */,

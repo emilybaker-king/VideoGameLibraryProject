@@ -16,6 +16,7 @@ class GameTableViewCell: UITableViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var statusView: UIView!
     
+    var genreChosen: String = ""
     
     
     override func awakeFromNib() {
