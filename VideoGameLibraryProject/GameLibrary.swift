@@ -12,6 +12,7 @@ class GameLibrary: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     @IBOutlet weak var gameListTableView: UITableView!
     
+    var currentGame: Game!
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,9 +60,23 @@ class GameLibrary: UIViewController, UITableViewDelegate, UITableViewDataSource 
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
-        return [deleteAction]
+        let gameForIndex = GameManager.sharedInstance.getGame(at: indexPath.row)
+        let title = gameForIndex.checkedIn ? "Check Out" : "Check In"
+        
+        let checkOutOrInAction = UITableViewRowAction(style: .normal, title: title) { (_, _) in
+            GameManager.sharedInstance.checkGameInOrOut(at: indexPath.row)
+            tableView.reloadRows(at: [indexPath], with: .fade)
+        }
+        
+        let showEditScreenAction = UITableViewRowAction(style: .normal, title: "Edit"){(_, _) in
+            self.currentGame = GameManager.sharedInstance.getGame(at: indexPath.row)
+            self.performSegue(withIdentifier: "showEditGameScreen", sender: self)
+        }
+        
+        showEditScreenAction.backgroundColor = UIColor.purple
+        
+        return [deleteAction, checkOutOrInAction, showEditScreenAction]
     }
-    
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -69,6 +84,13 @@ class GameLibrary: UIViewController, UITableViewDelegate, UITableViewDataSource 
          tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? EditGameViewController {
+            //We need to pass through the Game that we'll be editing
+            destination.gameToEdit = currentGame
+        }
+    }
     
     
 

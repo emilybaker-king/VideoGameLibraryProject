@@ -14,7 +14,6 @@ class GameManager {
 
 //we are creating a private initializer so that no insatance of this class can be made anywhere else
 private init() {
-    gameArray[0].dueDate = Date()
     }
     
     //the array of games that will be used throughout the application
@@ -41,6 +40,21 @@ private init() {
     //function to remove a game from the game library
     func removeGame(at index: Int) {
         gameArray.remove(at: index)
+    }
+    
+    
+    //function to check game in or out
+    func checkGameInOrOut(at index: Int) {
+        let gameForIndex = gameArray[index]
+        gameForIndex.checkedIn = !gameForIndex.checkedIn
+        
+        if gameForIndex.checkedIn {
+            //Remove any existing due date
+            gameForIndex.dueDate = nil
+        } else {
+            //Add a new due date, since the game has just been checked out
+            gameForIndex.dueDate = Calendar.current.date(byAdding: .day, value: 14, to: Date())
+        }
     }
 
 }

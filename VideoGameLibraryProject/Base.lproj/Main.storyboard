@@ -174,11 +174,105 @@
                     </navigationItem>
                     <connections>
                         <outlet property="gameListTableView" destination="IQe-EH-0HY" id="k0T-hq-61l"/>
+                        <segue destination="HPH-K8-gLa" kind="show" identifier="showEditGameScreen" id="C4z-uF-wHM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZI-ZF-PgO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1913" y="134"/>
+        </scene>
+        <!--Edit Game View Controller-->
+        <scene sceneID="C9w-CW-MdX">
+            <objects>
+                <viewController id="HPH-K8-gLa" customClass="EditGameViewController" customModule="VideoGameLibraryProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="03b-tq-RZJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xtI-rA-7uk">
+                                <rect key="frame" x="20" y="114" width="335" height="553"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBj-ua-eDN">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i6C-bo-Zri">
+                                        <rect key="frame" x="0.0" y="40.5" width="335" height="30"/>
+                                        <color key="backgroundColor" red="0.89626513210000003" green="0.89626513210000003" blue="0.89626513210000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clz-lm-eZ1">
+                                        <rect key="frame" x="0.0" y="90.5" width="335" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JMg-g1-iGh">
+                                        <rect key="frame" x="0.0" y="131" width="335" height="57"/>
+                                        <color key="backgroundColor" red="0.89626513210000003" green="0.89626513210000003" blue="0.89626513210000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Rating:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2l-Km-dSO">
+                                        <rect key="frame" x="0.0" y="208" width="335" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Gh9-fy-7sd">
+                                        <rect key="frame" x="0.0" y="248.5" width="335" height="29"/>
+                                        <segments>
+                                            <segment title="E"/>
+                                            <segment title="E10+"/>
+                                            <segment title="T"/>
+                                            <segment title="M"/>
+                                            <segment title="AO"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Genre:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hg2-vD-Zii">
+                                        <rect key="frame" x="0.0" y="296.5" width="335" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="02e-UG-LQ1">
+                                        <rect key="frame" x="0.0" y="337" width="335" height="216"/>
+                                    </pickerView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kA0-pP-RV4">
+                                <rect key="frame" x="140" y="74" width="95" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.74597231220000004" green="0.1151320319" blue="0.09921503274" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QNa-Ru-sKp" firstAttribute="trailing" secondItem="xtI-rA-7uk" secondAttribute="trailing" constant="20" id="6Jy-0Q-BWw"/>
+                            <constraint firstItem="QNa-Ru-sKp" firstAttribute="trailing" secondItem="kA0-pP-RV4" secondAttribute="trailing" constant="140" id="7CK-Uj-s8R"/>
+                            <constraint firstItem="kA0-pP-RV4" firstAttribute="leading" secondItem="QNa-Ru-sKp" secondAttribute="leading" constant="140" id="RFC-oQ-8to"/>
+                            <constraint firstItem="xtI-rA-7uk" firstAttribute="top" secondItem="QNa-Ru-sKp" secondAttribute="top" constant="50" id="ZPB-Su-w3c"/>
+                            <constraint firstItem="QNa-Ru-sKp" firstAttribute="bottom" secondItem="xtI-rA-7uk" secondAttribute="bottom" id="krR-Yg-S0M"/>
+                            <constraint firstItem="kA0-pP-RV4" firstAttribute="top" secondItem="QNa-Ru-sKp" secondAttribute="top" constant="10" id="uJu-yB-BkZ"/>
+                            <constraint firstItem="xtI-rA-7uk" firstAttribute="leading" secondItem="QNa-Ru-sKp" secondAttribute="leading" constant="20" id="zjL-SD-vkt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QNa-Ru-sKp"/>
+                    </view>
+                    <connections>
+                        <outlet property="editGameDescriptionTextField" destination="JMg-g1-iGh" id="kHc-4Y-VEA"/>
+                        <outlet property="editGameGenrePicker" destination="02e-UG-LQ1" id="1pn-7D-e4M"/>
+                        <outlet property="editGameNameTextField" destination="i6C-bo-Zri" id="Az3-w6-nrb"/>
+                        <outlet property="editGameRatingSegmentedController" destination="Gh9-fy-7sd" id="4iT-EH-fj7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PXN-lA-VTp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1920.8" y="996.25187406296857"/>
         </scene>
         <!--Game Info-->
         <scene sceneID="AHy-uk-pQa">
