@@ -27,6 +27,24 @@ class addGame: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         
     }
     
+    
+    //This function is a error alert so when adding a  new game if all of the information isn't there then there will be a error message
+    func error() {
+        //UIAlert controller
+        let errorAlert = UIAlertController(title: "Error", message: "All Fields not filled out. Please fill out all of the fields to add a new game.", preferredStyle: .alert)
+        
+        //UIAlertAction
+        let closeAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+        
+        //add the action in the alert controller
+        errorAlert.addAction(closeAction)
+        
+        //present alert controller
+        self.present(errorAlert, animated: true, completion: nil)
+    }
+    
+    
+    
     //this function is for the number of rows in your picker view. example is a date would have 3 rows.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -50,6 +68,7 @@ class addGame: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
             let gameDescription = descriptionTextField.text,
             gameDescription.trimmingCharacters(in: .whitespacesAndNewlines) != "" else {
                 //show an error and return
+                error()
                 return
         }
         

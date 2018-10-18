@@ -36,8 +36,33 @@ class GameLibrary: UIViewController, UITableViewDelegate, UITableViewDataSource 
             cell.statusView.backgroundColor = UIColor.red
         }
         
+        //If the game has a due date, we want to format it into a String and display it on the dueDateLabel
+        if let dueDate = currentGame.dueDate {
+            cell.dateLabel.text = formatDate(dueDate)
+        } else {
+            cell.dateLabel.text = ""
+        }
+        
+        
         return cell
     }
+    
+    
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        //This allows us to return an array of actions a row will have (if any)
+        
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (_, _) in
+            //remove the game at the current index from the game array
+            GameManager.sharedInstance.removeGame(at: indexPath.row)
+            //Delete the row from the table view at the current index path.
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+        return [deleteAction]
+    }
+    
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         

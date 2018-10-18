@@ -14,11 +14,12 @@ class GameManager {
 
 //we are creating a private initializer so that no insatance of this class can be made anywhere else
 private init() {
+    gameArray[0].dueDate = Date()
     }
     
     //the array of games that will be used throughout the application
     
-    private var gameArray = [Game(title: "Fortnite", genre: "Battle Royale", description: "", rating: "E 10+")]
+    private var gameArray = [Game(title: "Fortnite", genre: "Battle Royale", description: "", rating: "E 10+"), Game(title: "Portal", genre: "Puzzle", description: "", rating: "T")]
     
     //function to get the number of games we have
     func getGameCount() -> Int {
@@ -35,6 +36,11 @@ private init() {
     //function to add a game to the library
     func addGame(game: Game) {
         gameArray.append(game)
+    }
+    
+    //function to remove a game from the game library
+    func removeGame(at index: Int) {
+        gameArray.remove(at: index)
     }
 
 }
