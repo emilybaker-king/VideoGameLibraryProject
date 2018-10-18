@@ -9,10 +9,12 @@
 import UIKit
 
 class EditGameViewController: UIViewController {
-
+    
     var gameToEdit: Game!
     
-
+    var ratingEdit: Game!
+    
+    
     @IBOutlet weak var editGameNameTextField: UITextField!
     @IBOutlet weak var editGameDescriptionTextField: UITextView!
     @IBOutlet weak var editGameRatingSegmentedController: UISegmentedControl!
@@ -23,17 +25,67 @@ class EditGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-        //get the genre for the game
+        
+        
+        //select the rating of the game selected to edit
+        var ratingEdit: String!
+        
+        switch gameToEdit.rating {
+        case "E":
+            editGameRatingSegmentedController.selectedSegmentIndex
+        default:
+            
+        }
+        
+        
+        
+        //select the genre of the game selected game to edit
         switch gameToEdit.genre {
+        case "Massive Multiplayer Online (MMO)":
+            editGameGenrePicker.selectRow(0, inComponent: 0, animated: false)
+        case "Simulations":
+            editGameGenrePicker.selectRow(1, inComponent: 0, animated: false)
+        case "Adventure":
+            editGameGenrePicker.selectRow(2, inComponent: 0, animated: false)
+        case "Real-Time Strategy (RTS)":
+            editGameGenrePicker.selectRow(3, inComponent: 0, animated: false)
+        case "Puzzle":
+            editGameGenrePicker.selectRow(4, inComponent: 0, animated: false)
         case "Action":
             editGameGenrePicker.selectRow(5, inComponent: 0, animated: false)
+        case "Stealth Shooter":
+            editGameGenrePicker.selectRow(6, inComponent: 0, animated: false)
+        case "First-Person Shooter(FPS)":
+            editGameGenrePicker.selectRow(7, inComponent: 0, animated: false)
+        case "Combat":
+            editGameGenrePicker.selectRow(8, inComponent: 0, animated: false)
+        case "Sports":
+            editGameGenrePicker.selectRow(9, inComponent: 0, animated: false)
+        case "Role Playing Game (RPG)":
+            editGameGenrePicker.selectRow(10, inComponent: 0, animated: false)
+        case "Educational":
+            editGameGenrePicker.selectRow(11, inComponent: 0, animated: false)
+        case "Battle Royale":
+            editGameGenrePicker.selectRow(12, inComponent: 0, animated: false)
+        case "Survival Horror":
+            editGameGenrePicker.selectRow(13, inComponent: 0, animated: false)
+        case "Hybrid":
+            editGameGenrePicker.selectRow(14, inComponent: 0, animated: false)
+        case "Dance/Rhythm":
+            editGameGenrePicker.selectRow(15, inComponent: 0, animated: false)
+        case "Platform":
+            editGameGenrePicker.selectRow(16, inComponent: 0, animated: false)
+        case "Shooter":
+            editGameGenrePicker.selectRow(17, inComponent: 0, animated: false)
+        default:
+            editGameGenrePicker.selectedRow(inComponent: 0)
         }
     }
     
     
-     //this function is for the number of rows in your picker view. example is a date would have 3 rows.
+    //this function is for the number of rows in your picker view. example is a date would have 3 rows.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -49,15 +101,15 @@ class EditGameViewController: UIViewController {
     }
     
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
