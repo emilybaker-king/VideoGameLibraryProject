@@ -18,7 +18,7 @@ private init() {
     
     //the array of games that will be used throughout the application
     
-    private var gameArray = [Game(title: "Fortnite", genre: "Battle Royale", description: "", rating: "E 10+"), Game(title: "Portal", genre: "Puzzle", description: "", rating: "T")]
+    var gameArray = [Game(title: "Fortnite", genre: "Battle Royale", description: "", rating: "E10+"), Game(title: "Portal", genre: "Puzzle", description: "", rating: "T")]
     
     //function to get the number of games we have
     func getGameCount() -> Int {

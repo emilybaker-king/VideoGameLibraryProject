@@ -82,6 +82,8 @@ class GameLibrary: UIViewController, UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
          tableView.deselectRow(at: indexPath, animated: true)
+        self.currentGame = GameManager.sharedInstance.getGame(at: indexPath.row)
+        self.performSegue(withIdentifier: "segueToGameDetails", sender: self)
     }
     
     
@@ -89,6 +91,8 @@ class GameLibrary: UIViewController, UITableViewDelegate, UITableViewDataSource 
         if let destination = segue.destination as? EditGameViewController {
             //We need to pass through the Game that we'll be editing
             destination.gameToEdit = currentGame
+        } else if let destination = segue.destination as? gameInfo {
+            destination.game = currentGame
         }
     }
     

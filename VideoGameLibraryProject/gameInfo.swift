@@ -9,11 +9,23 @@
 import UIKit
 
 class gameInfo: UIViewController {
+    
+    @IBOutlet weak var gameName: UILabel!
+    @IBOutlet weak var gameDescription: UILabel!
+    @IBOutlet weak var rating: UILabel!
+    @IBOutlet weak var genre: UILabel!
+    
+    var game: Game!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        gameName.text = game.title
+        gameDescription.text = game.description
+        rating.text = game.rating
+        genre.text = game.genre
     }
     
 

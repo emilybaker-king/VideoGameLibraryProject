@@ -40,7 +40,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
-                                    <segue destination="RFN-yx-rzT" kind="show" id="Zdb-nz-du5"/>
+                                    <action selector="submitButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WOa-LU-Fiy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -62,6 +62,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="7EV-JT-Bkb"/>
+                    <connections>
+                        <outlet property="ageTextField" destination="VBs-sB-RYd" id="zQt-jT-G7E"/>
+                        <outlet property="submitButton" destination="KMN-3Y-a8o" id="iiN-ms-XRb"/>
+                        <segue destination="RFN-yx-rzT" kind="show" identifier="showMainScreen" id="LTd-hU-6zW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -146,7 +151,6 @@
                                             <outlet property="ratingLabel" destination="Sbv-pW-XBX" id="RyT-Tb-5nX"/>
                                             <outlet property="statusView" destination="nVx-5g-4OS" id="jHj-Dx-FBd"/>
                                             <outlet property="titleLabel" destination="IAE-wd-7Mz" id="dgw-aK-4yV"/>
-                                            <segue destination="GLI-QT-99T" kind="show" id="lmI-Bw-D1D"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -175,13 +179,14 @@
                     <connections>
                         <outlet property="gameListTableView" destination="IQe-EH-0HY" id="k0T-hq-61l"/>
                         <segue destination="HPH-K8-gLa" kind="show" identifier="showEditGameScreen" id="C4z-uF-wHM"/>
+                        <segue destination="GLI-QT-99T" kind="show" identifier="segueToGameDetails" id="bS7-8z-4ZL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZI-ZF-PgO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1913" y="134"/>
         </scene>
-        <!--Edit Game View Controller-->
+        <!--Edit Page-->
         <scene sceneID="C9w-CW-MdX">
             <objects>
                 <viewController id="HPH-K8-gLa" customClass="EditGameViewController" customModule="VideoGameLibraryProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -241,36 +246,47 @@
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="02e-UG-LQ1">
                                         <rect key="frame" x="0.0" y="337" width="335" height="216"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="HPH-K8-gLa" id="DCl-tb-9mR"/>
+                                            <outlet property="delegate" destination="HPH-K8-gLa" id="Ljp-bw-wJy"/>
+                                        </connections>
                                     </pickerView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kA0-pP-RV4">
-                                <rect key="frame" x="140" y="74" width="95" height="26.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" red="0.74597231220000004" green="0.1151320319" blue="0.09921503274" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QNa-Ru-sKp" firstAttribute="trailing" secondItem="xtI-rA-7uk" secondAttribute="trailing" constant="20" id="6Jy-0Q-BWw"/>
-                            <constraint firstItem="QNa-Ru-sKp" firstAttribute="trailing" secondItem="kA0-pP-RV4" secondAttribute="trailing" constant="140" id="7CK-Uj-s8R"/>
-                            <constraint firstItem="kA0-pP-RV4" firstAttribute="leading" secondItem="QNa-Ru-sKp" secondAttribute="leading" constant="140" id="RFC-oQ-8to"/>
                             <constraint firstItem="xtI-rA-7uk" firstAttribute="top" secondItem="QNa-Ru-sKp" secondAttribute="top" constant="50" id="ZPB-Su-w3c"/>
                             <constraint firstItem="QNa-Ru-sKp" firstAttribute="bottom" secondItem="xtI-rA-7uk" secondAttribute="bottom" id="krR-Yg-S0M"/>
-                            <constraint firstItem="kA0-pP-RV4" firstAttribute="top" secondItem="QNa-Ru-sKp" secondAttribute="top" constant="10" id="uJu-yB-BkZ"/>
                             <constraint firstItem="xtI-rA-7uk" firstAttribute="leading" secondItem="QNa-Ru-sKp" secondAttribute="leading" constant="20" id="zjL-SD-vkt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QNa-Ru-sKp"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Edit Page" id="M6q-nx-oIG">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Ece-UY-a5Z">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OJg-rX-H3e">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.74597231220000004" green="0.1151320319" blue="0.09921503274" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitButtonTapped:" destination="HPH-K8-gLa" eventType="touchUpInside" id="Tmb-Qh-E5S"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="editGameDescriptionTextField" destination="JMg-g1-iGh" id="kHc-4Y-VEA"/>
                         <outlet property="editGameGenrePicker" destination="02e-UG-LQ1" id="1pn-7D-e4M"/>
                         <outlet property="editGameNameTextField" destination="i6C-bo-Zri" id="Az3-w6-nrb"/>
                         <outlet property="editGameRatingSegmentedController" destination="Gh9-fy-7sd" id="4iT-EH-fj7"/>
+                        <segue destination="3MJ-l8-ZMl" kind="unwind" identifier="edited" unwindAction="unwindToGameListWithSegue:" id="8bH-wY-o4V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PXN-lA-VTp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3MJ-l8-ZMl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1920.8" y="996.25187406296857"/>
         </scene>
@@ -321,6 +337,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ro5-wc-hT9"/>
                     </view>
+                    <connections>
+                        <outlet property="gameDescription" destination="SUX-9P-8w3" id="jrg-Eg-36S"/>
+                        <outlet property="gameName" destination="yn4-Ka-8Yz" id="iqz-QL-g3d"/>
+                        <outlet property="genre" destination="ZRp-xe-bIF" id="91D-YA-SCC"/>
+                        <outlet property="rating" destination="g5s-uR-HyX" id="qp4-4y-feL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q1Y-2c-0K1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -407,7 +429,7 @@
                     <navigationItem key="navigationItem" title="Add New Game" id="v77-Fz-Khq">
                         <barButtonItem key="rightBarButtonItem" title="Submit" id="Pqt-5M-yvS">
                             <connections>
-                                <action selector="submitButtonTapped:" destination="bzO-po-5AR" id="KDE-6O-KMN"/>
+                                <action selector="submitButtonTapped:" destination="bzO-po-5AR" id="i8V-ft-d19"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

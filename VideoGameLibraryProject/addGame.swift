@@ -62,7 +62,7 @@ class addGame: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     
     @IBAction func submitButtonTapped(_ sender: Any) {
-        //this checks to make sure there ia data in the text fields
+        //this checks to make sure there is data in the text fields
         guard let title = titleTextField.text,
             title.trimmingCharacters(in: .whitespacesAndNewlines) != "",
             let gameDescription = descriptionTextField.text,
@@ -117,3 +117,4 @@ class addGame: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     */
 
 }
+

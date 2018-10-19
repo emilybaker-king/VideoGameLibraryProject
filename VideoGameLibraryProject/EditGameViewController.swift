@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditGameViewController: UIViewController {
+class EditGameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var gameToEdit: Game!
     
@@ -29,14 +29,28 @@ class EditGameViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         
-        //select the rating of the game selected to edit
-        var ratingEdit: String!
+        //pull the title of the game you selected
+        editGameNameTextField.text = gameToEdit.title
         
+        
+        //pull the description of the game that they selected
+        editGameDescriptionTextField.text = gameToEdit.description
+    
+        
+        //select the rating of the game selected to edit
         switch gameToEdit.rating {
         case "E":
-            editGameRatingSegmentedController.selectedSegmentIndex
+            editGameRatingSegmentedController.selectedSegmentIndex = 0
+        case "E10+":
+            editGameRatingSegmentedController.selectedSegmentIndex = 1
+        case "T":
+            editGameRatingSegmentedController.selectedSegmentIndex = 2
+        case "M":
+            editGameRatingSegmentedController.selectedSegmentIndex = 3
+        case "AO":
+            editGameRatingSegmentedController.selectedSegmentIndex = 4
         default:
-            
+            editGameRatingSegmentedController.selectedSegmentIndex = 0
         }
         
         
@@ -80,7 +94,7 @@ class EditGameViewController: UIViewController {
         case "Shooter":
             editGameGenrePicker.selectRow(17, inComponent: 0, animated: false)
         default:
-            editGameGenrePicker.selectedRow(inComponent: 0)
+            editGameGenrePicker.selectRow(0, inComponent: 0, animated: false)
         }
     }
     
@@ -100,6 +114,80 @@ class EditGameViewController: UIViewController {
         return editPickerData[row]
     }
     
+    @IBAction func submitButtonTapped(_ sender: UIButton) {
+        //this checks to make sure there is data in the text fields
+        guard let title = editGameNameTextField.text,
+            title.trimmingCharacters(in: .whitespacesAndNewlines) != "",
+            let gameDescription = editGameDescriptionTextField.text,
+            gameDescription.trimmingCharacters(in: .whitespacesAndNewlines) != "" else {
+                //show an error and return
+                errors()
+                return
+        }
+        
+        //The rating for the edited game
+        let editedRating = editGameRatingSegmentedController.selectedSegmentIndex
+        
+        switch editedRating {
+        case 0:
+            gameToEdit.rating = "E"
+        case 1:
+            gameToEdit.rating = "E10+"
+        case 2:
+            gameToEdit.rating = "T"
+        case 3:
+            gameToEdit.rating = "M"
+        case 4:
+            gameToEdit.rating = "AO"
+        default:
+            gameToEdit.rating = "E"
+        }
+        
+        //setting the things differently in the array so the changes will be saved
+        gameToEdit.title = title
+        gameToEdit.description = gameDescription
+        gameToEdit.genre = editPickerData[editGameGenrePicker.selectedRow(inComponent: 0)]
+        
+        
+        edited()
+    }
+    
+    
+    
+    //This function is a error alert so when editing a game if all of the information isn't there, then there will be a error message
+    func errors() {
+        //UIAlert controller
+        let errorAlert = UIAlertController(title: "Error", message: "All Fields not filled out. Please fill out all of the fields to edit this game.", preferredStyle: .alert)
+        
+        //UIAlertAction
+        let closeAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+        
+        //add the action in the alert controller
+        errorAlert.addAction(closeAction)
+        
+        //present alert controller
+        self.present(errorAlert, animated: true, completion: nil)
+    }
+    
+    
+    //when submit button tapped it will take you back to the main screen.
+    func edited() {
+        //UIAlertController
+        let editedAlert = UIAlertController(title: "Edited Game", message: "You edited \(gameToEdit.title)", preferredStyle: .alert)
+        
+        //UIAlertAction
+        let closeAction2 = UIAlertAction(title: "Close", style: .default) { _ in
+            //segue to other screen
+            self.performSegue(withIdentifier: "edited", sender: self)
+        }
+        
+        //add action in the alert controller
+        editedAlert.addAction(closeAction2)
+        
+        //present alert controller
+        self.present(editedAlert, animated: true, completion: nil)
+    }
+    
     
     
     /*
@@ -113,3 +201,6 @@ class EditGameViewController: UIViewController {
      */
     
 }
+
+
+
