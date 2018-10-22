@@ -21,6 +21,7 @@
 		B7A60723217508B100AA5039 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7A60722217508B100AA5039 /* Assets.xcassets */; };
 		B7A60726217508B100AA5039 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A60724217508B100AA5039 /* LaunchScreen.storyboard */; };
 		B7F396772177AD4600B1F31F /* gameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F396762177AD4600B1F31F /* gameManager.swift */; };
+		B7FD6C37217E20C400D19941 /* videoGames.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7FD6C36217E20C400D19941 /* videoGames.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		B7A60725217508B100AA5039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7A60727217508B100AA5039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7F396762177AD4600B1F31F /* gameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameManager.swift; sourceTree = "<group>"; };
+		B7FD6C36217E20C400D19941 /* videoGames.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = videoGames.jpg; path = ../../../../other/videoGames.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				B7A6071B217508B000AA5039 /* AppDelegate.swift */,
 				B7A6071D217508B000AA5039 /* ViewController.swift */,
+				B7FD6C36217E20C400D19941 /* videoGames.jpg */,
 				B7A6071F217508B000AA5039 /* Main.storyboard */,
 				B7A60722217508B100AA5039 /* Assets.xcassets */,
 				B7A60724217508B100AA5039 /* LaunchScreen.storyboard */,
@@ -173,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7A60726217508B100AA5039 /* LaunchScreen.storyboard in Resources */,
+				B7FD6C37217E20C400D19941 /* videoGames.jpg in Resources */,
 				B7A60723217508B100AA5039 /* Assets.xcassets in Resources */,
 				B7A60721217508B000AA5039 /* Main.storyboard in Resources */,
 			);

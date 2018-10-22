@@ -23,7 +23,7 @@ class gameInfo: UIViewController {
         // Do any additional setup after loading the view.
         
         gameName.text = game.title
-        gameDescription.text = game.description
+        gameDescription.text = game.gameDescription
         rating.text = game.rating
         genre.text = game.genre
     }

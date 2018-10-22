@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class EditGameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -143,11 +144,13 @@ class EditGameViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             gameToEdit.rating = "E"
         }
         
-        //setting the things differently in the array so the changes will be saved
-        gameToEdit.title = title
-        gameToEdit.description = gameDescription
-        gameToEdit.genre = editPickerData[editGameGenrePicker.selectedRow(inComponent: 0)]
+        let realm = try! Realm()
         
+        try! realm.write {
+        gameToEdit.title = title
+        gameToEdit.gameDescription = gameDescription
+        gameToEdit.genre = editPickerData[editGameGenrePicker.selectedRow(inComponent: 0)]
+        }
         
         edited()
     }

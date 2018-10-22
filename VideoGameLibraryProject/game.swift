@@ -6,21 +6,17 @@
 //  Copyright © 2018 Emily Baker-King. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import RealmSwift
 
-class Game {
-    var title: String
-    var genre: String
-    var description: String
-    var dueDate: Date?
-    var checkedIn: Bool = true
-    var rating: String
+class Game: Object {
+    @objc dynamic var title: String = ""
+    @objc dynamic var genre: String = ""
+    @objc dynamic var gameDescription: String = ""
+    @objc dynamic var dueDate: Date? = nil
+    @objc dynamic var checkedIn: Bool = true
+    @objc dynamic var rating: String = ""
     
-    init(title: String, genre: String, description: String, rating: String) {
-        self.title = title
-        self.genre = genre
-        self.description = description
-        self.rating = rating
-    }
+    
     
 }

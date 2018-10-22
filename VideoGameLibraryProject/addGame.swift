@@ -16,6 +16,8 @@ class addGame: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var genrePicker: UIPickerView!
     @IBOutlet weak var submitButton: UIBarButtonItem!
     
+    let newGame = Game()
+    
     //array holding the genres that the games can have
     let pickerData: [String] = ["Massive Multiplayer Online (MMO)", "Simulations", "Adventure", "Real-Time Strategy (RTS)", "Puzzle", "Action", "Stealth Shooter", "First-Person Shooter (FPS)", "Combat", "Sports", "Role-Playing (RPG)", "Educational", "Battle Royale", "Survival Horror", "Hybrid", "Dance/Rhythm", "Platform", "Shooter"]
     
@@ -92,9 +94,17 @@ class addGame: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         
         //get the genre for the game
         let genre = pickerData[genrePicker.selectedRow(inComponent: 0)]
+
+        //setting the properties for the new game using dot notation
         
-        //add a new game
-        let newGame = Game(title: title, genre: genre, description: gameDescription, rating: rating)
+            
+        newGame.title = titleTextField.text!
+            
+        newGame.gameDescription = description
+            
+        newGame.genre = genre
+            
+        newGame.rating = rating
         
         GameManager.sharedInstance.addGame(game: newGame)
         
